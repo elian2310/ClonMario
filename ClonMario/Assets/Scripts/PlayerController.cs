@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
     public int speed = 5;
     private bool FacingRight = true;
     private float horizontalMove;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         horizontalMove = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
     }
     // Update is called once per frame
     void Update()
