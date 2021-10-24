@@ -5,7 +5,10 @@ using UnityEngine;
 public class GoombaController : MonoBehaviour
 {
     public int speed;
-    public bool moveRight;
+    private bool moveRight;
+
+    private bool isCrushed;
+    public Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +29,7 @@ public class GoombaController : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("tube"))
+        if (collision.gameObject.CompareTag("tube") || collision.gameObject.CompareTag("enemies"))
         {
             if (moveRight)
             {
@@ -37,5 +40,21 @@ public class GoombaController : MonoBehaviour
                 moveRight = true;
             }
         }
+        if (collision.gameObject.tag == "player")
+        {
+            float yOffset = 0.5f;
+            if (transform.position.y + yOffset < collision.transform.position.y)
+            {
+                isCrushed = true;
+                animator.SetBool("IsCrushed", isCrushed);
+                speed = 0;
+                Invoke("Death", 1);
+            }
+            
+        }
+    }
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 }
