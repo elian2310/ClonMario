@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         {
             if (jumpTimeCounter > 0)
             {
-                rb.AddForce(Vector2.up * jumpPower);
+                rb.velocity = Vector2.up * jumpPower;
                 jumpTimeCounter -= Time.deltaTime;
             }
             else
@@ -75,7 +75,7 @@ public class PlayerController : MonoBehaviour
     }
     void Jump()
     {
-        rb.AddForce(Vector2.up * jumpPower);
+        rb.velocity = Vector2.up * jumpPower;
         isJumping = true;
         jumpTimeCounter = jumpTime;
     }
