@@ -9,10 +9,12 @@ public class GoombaController : MonoBehaviour
 
     private bool isCrushed;
     public Animator animator;
+
+    GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("player");
     }
 
     // Update is called once per frame
@@ -45,10 +47,15 @@ public class GoombaController : MonoBehaviour
             float yOffset = 0.5f;
             if (transform.position.y + yOffset < collision.transform.position.y)
             {
+                player.GetComponent<Rigidbody2D>().velocity = Vector2.up * 7;
                 isCrushed = true;
                 animator.SetBool("IsCrushed", isCrushed);
                 speed = 0;
-                Invoke("Death", 1);
+                Invoke("Death", 0.5f);
+            }
+            else
+            {
+                PlayerController.death = true;
             }
             
         }

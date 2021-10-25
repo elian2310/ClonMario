@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private float horizontalMove;
     public Animator animator;
 
-    public int jumpPower = 35;
+    public int jumpPower = 40;
     private bool isGrounded;
     public Transform feetPos;
     public float checkRadius;
@@ -20,10 +21,15 @@ public class PlayerController : MonoBehaviour
     public float jumpTime;
     private bool isJumping;
 
+    public static bool death;
+    private float countdown = 0.5f;
+
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        death = false;
     }
 
     void FixedUpdate()
@@ -65,6 +71,30 @@ public class PlayerController : MonoBehaviour
         {
             isJumping = false;
         }
+        if (death)
+        {
+            speed = 0;
+            jumpPower = 0;
+            animator.SetTrigger("Death");
+            countdown -= Time.deltaTime;
+            if (countdown > 0f)
+            {
+                Invoke("Death", 0.5f);
+            }
+            if (transform.position.y < -30)
+            {
+                SceneManager.LoadScene("SampleScene");
+            }
+            
+            
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("void"))
+        {
+            death = true;
+        }
     }
     void FlipPlayer()
     {
@@ -78,5 +108,10 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.up * jumpPower;
         isJumping = true;
         jumpTimeCounter = jumpTime;
+    }
+    void Death()
+    {
+        GetComponent<Collider2D>().isTrigger = true;
+        rb.velocity = new Vector2(rb.velocity.x, 5f);
     }
 }
