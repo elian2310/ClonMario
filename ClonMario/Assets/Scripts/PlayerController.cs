@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     public static bool death;
     private float countdown = 0.5f;
+    public static bool isStarUp;
 
 
     // Start is called before the first frame update
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         death = false;
+        isStarUp = false;
     }
 
     void FixedUpdate()
@@ -87,6 +89,11 @@ public class PlayerController : MonoBehaviour
             }
             
             
+        }
+
+        if(isStarUp)
+        {
+            animator.SetBool("IsStarUp", isStarUp);
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)

@@ -185,8 +185,20 @@ TextureImporter:
   - first:
       213: -4696538207047776169
     second: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_60
+  - first:
+      213: -7380992777606040628
+    second: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_61
+  - first:
+      213: -8987844621445848747
+    second: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_62
+  - first:
+      213: 3103206760919483793
+    second: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_63
+  - first:
+      213: -6691911554247845894
+    second: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_64
   externalObjects: {}
-  serializedVersion: 10
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -206,6 +218,7 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -214,9 +227,9 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
-    aniso: -1
-    mipBias: -100
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -237,9 +250,13 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -896,7 +913,7 @@ TextureImporter:
       name: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_28
       rect:
         serializedVersion: 2
-        x: 176
+        x: 177
         y: 256
         width: 16
         height: 32
@@ -1127,7 +1144,7 @@ TextureImporter:
       name: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_39
       rect:
         serializedVersion: 2
-        x: 176
+        x: 178
         y: 208
         width: 16
         height: 32
@@ -1581,6 +1598,90 @@ TextureImporter:
       bones: []
       spriteID: 7580ede426b82deb0800000000000000
       internalID: -4696538207047776169
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_61
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 336
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc37119cc22719990800000000000000
+      internalID: -7380992777606040628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_62
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 288
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 551a05abfe2c44380800000000000000
+      internalID: -8987844621445848747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_63
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 240
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19542398b1ec01b20800000000000000
+      internalID: 3103206760919483793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 154-1548342_mario-luigi-super-mario-bros-nes-sprite_64
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 192
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: af799bc85ed8123a0800000000000000
+      internalID: -6691911554247845894
       vertices: []
       indices: 
       edges: []
