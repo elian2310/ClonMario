@@ -177,9 +177,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2035753831847046405}
   - component: {fileID: 2974585678113436320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GoombaCollider
-  m_TagString: Untagged
+  m_TagString: enemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
