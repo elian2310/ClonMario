@@ -102,6 +102,11 @@ public class PlayerController : MonoBehaviour
         {
             death = true;
         }
+        if (collision.gameObject.CompareTag("brick"))
+        {
+            isJumping = false;
+            rb.velocity = Vector2.down * 5;
+        }
     }
     void FlipPlayer()
     {

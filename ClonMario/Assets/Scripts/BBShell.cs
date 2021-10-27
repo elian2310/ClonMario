@@ -16,7 +16,7 @@ public class BBShell : MonoBehaviour
 
     private Rigidbody2D rb;
 
-    private bool cameBack;
+    private bool cameBack = true;
 
     // Start is called before the first frame update
     void Start()

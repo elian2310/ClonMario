@@ -10,6 +10,7 @@ TagManager:
   - void
   - shellAttack
   - shell
+  - brick
   layers:
   - Default
   - TransparentFX

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7063617911913249626}
   - component: {fileID: 2324535930841991413}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TubeCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -68,7 +68,7 @@ GameObject:
   - component: {fileID: 807308542436530970}
   - component: {fileID: 684584437415375890}
   - component: {fileID: 1796876890615352207}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Tube
   m_TagString: tube
   m_Icon: {fileID: 0}
