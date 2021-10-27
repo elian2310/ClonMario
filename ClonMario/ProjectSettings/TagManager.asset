@@ -8,6 +8,8 @@ TagManager:
   - enemies
   - player
   - void
+  - shellAttack
+  - shell
   layers:
   - Default
   - TransparentFX
