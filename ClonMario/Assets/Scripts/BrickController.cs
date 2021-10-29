@@ -10,10 +10,17 @@ public class BrickController : MonoBehaviour
     private Vector2 originalPosition;
 
     private bool canBounce = true;
+    private ParticleSystem particle;
+    private SpriteRenderer sr;
+    private BoxCollider2D bc;
+
     // Start is called before the first frame update
     void Start()
     {
         originalPosition = transform.localPosition;
+        particle = GetComponentInChildren<ParticleSystem>();
+        sr = GetComponent<SpriteRenderer>();
+        bc = GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -22,14 +29,21 @@ public class BrickController : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.gameObject.CompareTag("player") && collision.contacts[0].normal.y > 0.5f)
         {
-            if (canBounce)
+            if (PlayerController.growUp)
             {
-                canBounce = false;
-                StartCoroutine(Bounce());
+                StartCoroutine(Break());
+            }
+            else
+            {
+                if (canBounce)
+                {
+                    canBounce = false;
+                    StartCoroutine(Bounce());
+                }
             }
         }
     }
@@ -59,5 +73,15 @@ public class BrickController : MonoBehaviour
         }
 
         canBounce = true;
+    }
+    
+    private IEnumerator Break()
+    {
+        particle.Play();
+        sr.enabled = false;
+        bc.enabled = false;
+
+        yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
+        Destroy(gameObject);
     }
 }
