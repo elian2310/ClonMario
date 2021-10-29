@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1818116421659774963}
   m_Layer: 0
   m_Name: Bounds
-  m_TagString: Untagged
+  m_TagString: tube
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -41,7 +41,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 733741889109306673}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 67f4379a7bccbd244becfb739836777e, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
