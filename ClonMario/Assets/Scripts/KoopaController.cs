@@ -8,10 +8,15 @@ public class KoopaController : MonoBehaviour
     private bool moveRight;
 
     public Animator animator;
+
+    public Transform shellSpawn;
+    public GameObject shell;
+
+    private GameObject player;
     // Start is called before the first frame update
     void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("player");
     }
 
     // Update is called once per frame
@@ -37,6 +42,32 @@ public class KoopaController : MonoBehaviour
             else
             {
                 Flip();
+            }
+        }
+        if (collision.CompareTag("player"))
+        {
+            float yOffset = 0.5f;
+
+            if (transform.position.y+yOffset < collision.transform.position.y)
+            {
+                player.GetComponent<Rigidbody2D>().velocity = Vector2.up * 7;
+                Instantiate(shell, shellSpawn.position, shellSpawn.rotation);
+                Destroy(gameObject);
+            }
+            else
+            {
+                /*if (PlayerController.growUp)
+                {
+                    if (PlayerController.isFlowerUp)
+                    {
+                        PlayerController.isFlowerUp = false;
+                    }
+                    PlayerController.growUp = false;
+                }
+                else
+                {*/
+                    PlayerController.death = true;
+                //}
             }
         }
     }
