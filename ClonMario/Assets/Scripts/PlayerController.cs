@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public static bool death;
     public static bool growUp;
+    public static bool isFlowerUp;
     private float countdown = 0.5f;
     public static bool isStarUp;
 
@@ -109,8 +110,14 @@ public class PlayerController : MonoBehaviour
             {
                 isCrouch = false;
                 animator.SetBool("IsCrouch", isCrouch);
+
+            }
+            if(isFlowerUp)
+            {
+                animator.SetBool("IsFlowerUp", isFlowerUp);
             }
         }
+
 
         if(isStarUp)
         {
