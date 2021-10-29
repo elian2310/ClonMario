@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         {
             death = true;
         }
-        if (collision.gameObject.CompareTag("brick"))
+        if (collision.gameObject.CompareTag("brick") || collision.gameObject.CompareTag("question") || collision.gameObject.CompareTag("block"))
         {
             isJumping = false;
             rb.velocity = Vector2.down * 5;

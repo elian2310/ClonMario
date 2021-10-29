@@ -11,6 +11,8 @@ TagManager:
   - shellAttack
   - shell
   - brick
+  - question
+  - block
   layers:
   - Default
   - TransparentFX
