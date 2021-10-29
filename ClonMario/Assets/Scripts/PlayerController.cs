@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private bool isJumping;
 
     public static bool death;
+    public static bool growUp;
     private float countdown = 0.5f;
     public static bool isStarUp;
 
@@ -31,6 +32,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         death = false;
+        growUp = false;
         isStarUp = false;
     }
 
@@ -87,8 +89,11 @@ public class PlayerController : MonoBehaviour
             {
                 SceneManager.LoadScene("SampleScene");
             }
-            
-            
+        }
+
+        if (growUp)
+        {
+            animator.SetBool("GrowUp", growUp);
         }
 
         if(isStarUp)
