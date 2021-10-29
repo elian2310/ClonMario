@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   animator: {fileID: 1797726316652614997}
+  goombaCollider: {fileID: 7991447156723760081}
 --- !u!1 &7991447156723760081
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,4 +214,4 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.29
+  m_Radius: 0.35

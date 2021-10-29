@@ -11,10 +11,14 @@ public class GoombaController : MonoBehaviour
     public Animator animator;
 
     GameObject player;
+    public GameObject goombaCollider;
+
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("player");
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,10 +32,14 @@ public class GoombaController : MonoBehaviour
         {
             transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
         }
+        if (transform.position.y < -30)
+        {
+            Death();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("tube") || collision.gameObject.CompareTag("enemies"))
+        if (collision.gameObject.CompareTag("tube") || collision.gameObject.CompareTag("enemies") || collision.CompareTag("shell"))
         {
             if (moveRight)
             {
@@ -51,13 +59,30 @@ public class GoombaController : MonoBehaviour
                 isCrushed = true;
                 animator.SetBool("IsCrushed", isCrushed);
                 speed = 0;
+                goombaCollider.GetComponent<CircleCollider2D>().isTrigger = false;
                 Invoke("Death", 0.5f);
             }
             else
             {
                 PlayerController.death = true;
             }
-            
+        }
+
+        if (collision.gameObject.CompareTag("shellAttack"))
+        {
+            Vector2 goombaScale = gameObject.transform.localScale;
+            goombaScale.y = -1;
+            transform.localScale = goombaScale;
+            speed = 0;
+            animator.SetBool("FireBallDeath", true);
+            GetComponent<Collider2D>().isTrigger = true;
+
+            float countdown = 0.5f;
+            countdown -= Time.deltaTime;
+            if (countdown > 0)
+            {
+                rb.velocity = new Vector2(1, 5);
+            }
         }
     }
     private void Death()

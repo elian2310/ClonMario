@@ -256,4 +256,4 @@ MonoBehaviour:
   speed: 1
   animator: {fileID: 7738629922679444864}
   shellSpawn: {fileID: 2353793801179554263}
-  shell: {fileID: 0}
+  shell: {fileID: 4751966621104897927, guid: e3ae6663ebbf70f4f9f472ddbf7fb6c3, type: 3}

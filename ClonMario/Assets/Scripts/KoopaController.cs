@@ -13,10 +13,12 @@ public class KoopaController : MonoBehaviour
     public GameObject shell;
 
     private GameObject player;
+    private Rigidbody2D rb;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("player");
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -30,10 +32,14 @@ public class KoopaController : MonoBehaviour
         {
             transform.Translate(-2 * Time.deltaTime * speed, 0, 0);
         }
+        if (transform.position.y < -30)
+        {
+            Death();
+        }
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("tube") || collision.gameObject.CompareTag("enemies"))
+        if (collision.gameObject.CompareTag("tube") || collision.gameObject.CompareTag("enemies") || collision.CompareTag("shell"))
         {
             if (moveRight)
             {
@@ -56,18 +62,30 @@ public class KoopaController : MonoBehaviour
             }
             else
             {
-                /*if (PlayerController.growUp)
+                if (PlayerController.growUp)
                 {
-                    if (PlayerController.isFlowerUp)
+                    /*if (PlayerController.isFlowerUp)
                     {
                         PlayerController.isFlowerUp = false;
-                    }
+                    }*/
                     PlayerController.growUp = false;
                 }
                 else
-                {*/
+                {
                     PlayerController.death = true;
-                //}
+                }
+            }
+        }
+        if (collision.CompareTag("shellAttack"))
+        {
+            animator.SetBool("Death", true);
+            GetComponent<Collider2D>().isTrigger = true;
+
+            float countdown = 0.5f;
+            countdown -= Time.deltaTime;
+            if (countdown > 0)
+            {
+                rb.velocity = new Vector2(1, 5);
             }
         }
     }
@@ -77,5 +95,9 @@ public class KoopaController : MonoBehaviour
         Vector2 ls = gameObject.transform.localScale;
         ls.x *= -1;
         transform.localScale = ls;
+    }
+    private void Death()
+    {
+        Destroy(gameObject);
     }
 }
