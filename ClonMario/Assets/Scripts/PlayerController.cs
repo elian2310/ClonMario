@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public Transform feetPos;
     public float checkRadius;
     public LayerMask whatIsGround;
+    private bool isCrouch;
 
     private float jumpTimeCounter;
     public float jumpTime;
@@ -38,9 +39,12 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        horizontalMove = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        if (!isCrouch)
+        {
+            horizontalMove = Input.GetAxis("Horizontal");
+            rb.velocity = new Vector2(horizontalMove * speed, rb.velocity.y);
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+        }
     }
     // Update is called once per frame
     void Update()
@@ -94,6 +98,18 @@ public class PlayerController : MonoBehaviour
         if (growUp)
         {
             animator.SetBool("GrowUp", growUp);
+
+            if (Input.GetKey(KeyCode.DownArrow))
+            {
+                isCrouch = true;
+                animator.SetBool("IsCrouch", isCrouch);
+            }
+
+            if (!Input.GetKey(KeyCode.DownArrow))
+            {
+                isCrouch = false;
+                animator.SetBool("IsCrouch", isCrouch);
+            }
         }
 
         if(isStarUp)
