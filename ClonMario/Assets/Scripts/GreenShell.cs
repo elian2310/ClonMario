@@ -12,11 +12,18 @@ public class GreenShell : MonoBehaviour
     GameObject player;
 
     private Rigidbody2D rb;
+
+    public Transform koopaSpawn;
+    public GameObject koopa;
+
+    public Animator animator;
+    private bool cameBack = true;
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("player");
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -30,6 +37,33 @@ public class GreenShell : MonoBehaviour
         {
             transform.Translate(Time.deltaTime * -speed, 0, 0);
         }
+        if (speed == 0)
+        {
+            StartCoroutine("CameBack");
+        }
+        else
+        {
+            StopCoroutine("CameBack");
+        }
+    }
+
+    private IEnumerator CameBack()
+    {
+        yield return new WaitForSeconds(5f);
+        if (cameBack)
+        {
+            animator.SetBool("CameBack", cameBack);
+            yield return new WaitForSeconds(2f);
+            cameBack = false;
+            animator.SetBool("CameBack", cameBack);
+        }
+        else
+        {
+            Instantiate(koopa, koopaSpawn.position, koopaSpawn.rotation);
+            Destroy(gameObject);
+            StopCoroutine("CameBack");
+        }
+        
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {

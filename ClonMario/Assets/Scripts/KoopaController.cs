@@ -50,7 +50,7 @@ public class KoopaController : MonoBehaviour
                 Flip();
             }
         }
-        if (collision.CompareTag("player"))
+        if (collision.gameObject.tag == "player")
         {
             float yOffset = 0.5f;
 
