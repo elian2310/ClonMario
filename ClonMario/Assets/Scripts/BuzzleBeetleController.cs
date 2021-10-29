@@ -64,19 +64,19 @@ public class BuzzleBeetleController : MonoBehaviour
             }
             else
             {
-                //Descomentar cuando haya flor y hongo
-                /*if (PlayerController.growUp)
+                //Descomentar cuando haya flor 
+                if (PlayerController.growUp)
                 {
-                    if (PlayerController.isFlowerUp)
+                    /*if (PlayerController.isFlowerUp)
                     {
                         PlayerController.isFlowerUp = false;
-                    }
+                    }*/
                     PlayerController.growUp = false;
                 }
-                else*/
-                //{
+                else
+                {
                     PlayerController.death = true;
-                //}
+                }
             }
         }
         

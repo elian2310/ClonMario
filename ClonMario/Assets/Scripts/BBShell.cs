@@ -81,19 +81,19 @@ public class BBShell : MonoBehaviour
                 }
                 else
                 {
-                    //Descomentar cuando haya Flor y Hongo
-                   /* if (PlayerController.growUp)
+                    //Descomentar cuando haya Flor 
+                    if (PlayerController.growUp)
                     {
-                        if (PlayerController.isFlowerUp)
+                        /*if (PlayerController.isFlowerUp)
                         {
                             PlayerController.isFlowerUp = false;
-                        }
+                        }*/
                         PlayerController.growUp = false;
                     }
                     else
-                    {*/
+                    {
                         PlayerController.death = true;
-                    //}
+                    }
                 }
             }
             else
