@@ -135,6 +135,10 @@ public class PlayerController : MonoBehaviour
             isJumping = false;
             rb.velocity = Vector2.down * 5;
         }
+        if (collision.gameObject.CompareTag("finish"))
+        {
+            SceneManager.LoadScene("SampleScene");
+        }
     }
     void FlipPlayer()
     {

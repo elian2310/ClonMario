@@ -197,8 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectSpawn: {fileID: 2866729785495420705}
   block: {fileID: 8376498894721815910, guid: 6ee1c4f63e2ad614ea632ac29ce14136, type: 3}
-  coin: {fileID: 0}
-  mushroom: {fileID: 4607168625609789614, guid: cce134f3dd72bc54bb6b7e09f441772d, type: 3}
+  coin: {fileID: 4324193428476317557, guid: a8896da45e7ecc749bd2bbbdde3fb4c4, type: 3}
+  mushroom: {fileID: 0}
 --- !u!1 &2838043904219977561
 GameObject:
   m_ObjectHideFlags: 0

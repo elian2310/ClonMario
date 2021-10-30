@@ -13,6 +13,7 @@ TagManager:
   - brick
   - question
   - block
+  - finish
   layers:
   - Default
   - TransparentFX

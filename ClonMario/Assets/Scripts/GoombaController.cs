@@ -50,10 +50,11 @@ public class GoombaController : MonoBehaviour
                 moveRight = true;
             }
         }
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.CompareTag("player"))
         {
+            
             float yOffset = 0.5f;
-            if (transform.position.y + yOffset < collision.transform.position.y)
+            if (transform.position.y + yOffset < collision.transform.position.y && !isCrushed)
             {
                 player.GetComponent<Rigidbody2D>().velocity = Vector2.up * 7;
                 isCrushed = true;
@@ -83,6 +84,10 @@ public class GoombaController : MonoBehaviour
             {
                 rb.velocity = new Vector2(1, 5);
             }
+        }
+        if (collision.CompareTag("void"))
+        {
+            Death();
         }
     }
     private void Death()

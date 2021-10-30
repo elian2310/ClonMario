@@ -88,6 +88,10 @@ public class KoopaController : MonoBehaviour
                 rb.velocity = new Vector2(1, 5);
             }
         }
+        if (collision.CompareTag("void"))
+        {
+            Death();
+        }
     }
     private void Flip()
     {
