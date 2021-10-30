@@ -9217,14 +9217,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Goomba
       objectReference: {fileID: 0}
-    - target: {fileID: 7491204636483657544, guid: e4ed0cd33fb18d34386ff44d1aedc8b5, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 7991447156723760081, guid: e4ed0cd33fb18d34386ff44d1aedc8b5, type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e4ed0cd33fb18d34386ff44d1aedc8b5, type: 3}
 --- !u!1001 &1794472188
