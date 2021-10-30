@@ -7,6 +7,7 @@ public class QuestionBlock : MonoBehaviour
     public Transform objectSpawn;
     public GameObject block;
     public GameObject coin;
+    public GameObject mushroom;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +20,11 @@ public class QuestionBlock : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("player") && collision.contacts[0].normal.y > 0.5f)
         {
-            if (coin != null)
+            if (mushroom != null)
+            {
+                Instantiate(mushroom, objectSpawn.position, objectSpawn.rotation);
+            }
+            else
             {
                 var coinValue = 1;
 
