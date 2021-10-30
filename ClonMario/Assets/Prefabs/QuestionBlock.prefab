@@ -102,8 +102,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 202374949
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: -4892008979600827118, guid: f57e5444929e91f449126ca21a544aab, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -229,6 +229,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectSpawn: {fileID: 2866729785495420705}
   block: {fileID: 8376498894721815910, guid: 6ee1c4f63e2ad614ea632ac29ce14136, type: 3}
+  coin: {fileID: 4324193428476317557, guid: a8896da45e7ecc749bd2bbbdde3fb4c4, type: 3}
 --- !u!61 &3334470222697911943
 BoxCollider2D:
   m_ObjectHideFlags: 0

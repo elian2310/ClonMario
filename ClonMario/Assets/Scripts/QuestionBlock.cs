@@ -6,6 +6,7 @@ public class QuestionBlock : MonoBehaviour
 {
     public Transform objectSpawn;
     public GameObject block;
+    public GameObject coin;
 
     // Start is called before the first frame update
     void Start()
@@ -18,7 +19,17 @@ public class QuestionBlock : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("player") && collision.contacts[0].normal.y > 0.5f)
         {
+            if (coin != null)
+            {
+                var coinValue = 1;
+
+                ScoreManager.instance.ChangeCoinScore(coinValue);
+
+                Instantiate(coin, objectSpawn.position, objectSpawn.rotation);
+            }
+
             Instantiate(block, objectSpawn.position, objectSpawn.rotation);
+            
             Destroy(gameObject);
         }
     }
